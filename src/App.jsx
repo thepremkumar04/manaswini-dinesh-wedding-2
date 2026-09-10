@@ -10,7 +10,7 @@ import Finale from "./components/Finale";
 import MusicPlayer from "./components/MusicPlayer";
 import FallingPetals from "./components/FallingPetals";
 import StudioSignature from "./components/StudioSignature";
-
+import Gallery from "./components/Gallery";
 export default function App() {
   const [invitationOpened, setInvitationOpened] = useState(false);
   const audioRef = useRef(null);
@@ -40,6 +40,7 @@ export default function App() {
     <>
       <Hero />
       <FamilySection />
+      <Gallery />
       <WeddingDetails />
       <Venue />
       <Countdown />
