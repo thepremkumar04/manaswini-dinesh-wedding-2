@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #F8F6F0;
+  --color-gold: #C5A15A;
+  --color-maroon: #101C32;
+  --color-brown: #25262A;
+  --color-cream: #FFFDF7;
+  --color-sage: #1E3154;
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "DM Sans", sans-serif;
+}
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #25262A;
+  background: #F8F6F0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #F8F6F0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: #C5A15A;
+  color: #FFFDF7;
+}
+
+/* Luxury invitation texture */
+.invitation-paper {
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(197, 161, 90, 0.08) 0 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(16, 28, 50, 0.05) 0 1px,
+      transparent 1px
+    );
+  background-size: 28px 28px, 36px 36px;
+}
+
+/* Gold divider */
+.gold-divider {
+  height: 1px;
+  width: 90px;
+  margin: 0 auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #C5A15A,
+    transparent
+  );
+}
+
+/* Royal luxury glow */
+.royal-glow {
+  box-shadow:
+    0 0 80px rgba(197, 161, 90, 0.12),
+    0 20px 60px rgba(16, 28, 50, 0.1);
+}
+
+/* Section transition */
+.section-transition {
+  position: relative;
+}
+
+.section-transition::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: 100%;
+  height: 45px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center bottom,
+    rgba(197, 161, 90, 0.08),
+    transparent 70%
+  );
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F6F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C5A15A;
+  border-radius: 999px;
+}
+
+
+
+/* =========================================
+   MOBILE POLISH
+   ========================================= */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  /* Prevent oversized typography from causing overflow */
+  h1,
+  h2,
+  h3,
+  h4 {
+    overflow-wrap: break-word;
+  }
+
+  /* Comfortable mobile section spacing */
+  section {
+    overflow-x: hidden;
+  }
+
+  /* Better touch experience */
+  button,
+  a {
+    touch-action: manipulation;
+  }
+
+  /* Keep long invitation text readable */
+  p {
+    overflow-wrap: break-word;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
