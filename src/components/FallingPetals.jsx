@@ -1,24 +1,57 @@
 import { motion } from "framer-motion";
 
-const petalColors = [
-  "bg-maroon/40",
-  "bg-gold/45",
-  "bg-sage/35",
-  "bg-brown/25",
-  "bg-maroon/30",
-  "bg-gold/35",
-];
+const petals = Array.from({ length: 28 }, (_, index) => {
+  const types = ["rose", "round", "leaf"];
 
-const petals = Array.from({ length: 45 }, (_, index) => ({
-  id: index,
-  left: `${(index * 37) % 100}%`,
-  size: 9 + ((index * 13) % 9),
-  duration: 10 + ((index * 17) % 10),
-  delay: (index * 0.55) % 10,
-  drift: -70 + ((index * 29) % 140),
-  rotate: 240 + ((index * 47) % 480),
-  color: petalColors[index % petalColors.length],
-}));
+  return {
+    id: index,
+    type: types[index % types.length],
+    left: `${(index * 23 + 7) % 100}%`,
+    delay: (index % 15) * 0.65,
+    duration: 9 + (index % 7) * 1.5,
+    size: 8 + (index % 6) * 2,
+    drift: 25 + (index % 5) * 12,
+  };
+});
+
+function PetalShape({ type, size }) {
+  if (type === "round") {
+    return (
+      <div
+        className="h-full w-full rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle at 35% 30%, #F5C5D2, #D96B8B 70%)",
+        }}
+      />
+    );
+  }
+
+  if (type === "leaf") {
+    return (
+      <div
+        className="h-full w-full"
+        style={{
+          borderRadius: "100% 0 100% 0",
+          background:
+            "linear-gradient(135deg, #A9C9B7, #5F8F78)",
+          transform: "rotate(-25deg)",
+        }}
+      />
+    );
+  }
+
+  return (
+    <div
+      className="h-full w-full"
+      style={{
+        borderRadius: "100% 0 100% 0",
+        background:
+          "linear-gradient(135deg, #FFD7E1, #C94F72)",
+      }}
+    />
+  );
+}
 
 export default function FallingPetals() {
   return (
@@ -27,26 +60,31 @@ export default function FallingPetals() {
       aria-hidden="true"
     >
       {petals.map((petal) => (
-        <motion.span
+        <motion.div
           key={petal.id}
-          className={`absolute top-[-40px] block ${petal.color}`}
-          style={{
-            left: petal.left,
-            width: petal.size,
-            height: petal.size * 0.68,
-            borderRadius: "70% 30% 70% 30%",
+          initial={{
+            y: "-12vh",
+            x: 0,
+            rotate: 0,
+            opacity: 0,
           }}
           animate={{
-            y: ["0vh", "110vh"],
+            y: "112vh",
             x: [
               0,
               petal.drift,
-              petal.drift * -0.5,
-              petal.drift,
-              petal.drift * -0.3,
+              -petal.drift,
+              petal.drift * 0.6,
+              -petal.drift * 0.4,
             ],
-            rotate: [0, petal.rotate],
-            opacity: [0, 0.7, 0.6, 0.45, 0],
+            rotate: [0, 100, 200, 300, 420],
+            opacity: [
+              0,
+              0.75,
+              0.7,
+              0.5,
+              0,
+            ],
           }}
           transition={{
             duration: petal.duration,
@@ -54,7 +92,21 @@ export default function FallingPetals() {
             repeat: Infinity,
             ease: "linear",
           }}
-        />
+          className="absolute top-0"
+          style={{
+            left: petal.left,
+            width: petal.size,
+            height:
+              petal.type === "round"
+                ? petal.size
+                : petal.size * 0.7,
+          }}
+        >
+          <PetalShape
+            type={petal.type}
+            size={petal.size}
+          />
+        </motion.div>
       ))}
     </div>
   );
