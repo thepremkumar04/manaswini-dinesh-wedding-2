@@ -91,7 +91,7 @@ export default function Gallery() {
         </div>
 
         {/* Gallery */}
-        <div className="mt-14 grid auto-rows-[220px] grid-cols-1 gap-4 sm:grid-cols-2 sm:auto-rows-[240px] md:mt-20 md:grid-cols-4 md:auto-rows-[210px] md:gap-5">
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-20 md:grid-cols-4 md:gap-5">
           {photos.map((photo, index) => (
             <motion.div
               key={photo.src}
@@ -105,12 +105,12 @@ export default function Gallery() {
               }}
               className={`group relative overflow-hidden border border-gold/25 bg-cream/10 p-1 ${photo.className}`}
             >
-              <div className="relative h-full w-full overflow-hidden">
+              <div className="relative h-full w-full overflow-hidden bg-maroon/80">
                 <img
                   src={photo.src}
                   alt={`Manaswini and Dinesh — moment ${index + 1}`}
                   loading={index === 0 ? "eager" : "lazy"}
-                  className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+                  className="h-full w-full object-contain transition duration-700 ease-out group-hover:scale-[1.02]"
                 />
 
                 {/* Image overlay */}
