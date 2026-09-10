@@ -1,17 +1,17 @@
 import { motion } from "framer-motion";
 
 const directions = {
-  up: { x: 0, y: 40 },
-  down: { x: 0, y: -40 },
-  left: { x: -40, y: 0 },
-  right: { x: 40, y: 0 },
+  up: { x: 0, y: 18 },
+  down: { x: 0, y: -18 },
+  left: { x: -18, y: 0 },
+  right: { x: 18, y: 0 },
 };
 
 export default function Reveal({
   children,
   delay = 0,
   direction = "up",
-  duration = 0.8,
+  duration = 0.5,
   className = "",
 }) {
   const offset = directions[direction] || directions.up;
@@ -30,7 +30,7 @@ export default function Reveal({
       }}
       viewport={{
         once: true,
-        amount: 0.15,
+        amount: 0.1,
       }}
       transition={{
         duration,

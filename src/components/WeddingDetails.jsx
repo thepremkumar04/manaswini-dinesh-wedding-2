@@ -4,73 +4,50 @@ import { Clock, Sparkles } from "lucide-react";
 export default function WeddingDetails() {
   return (
     <section className="section-transition relative overflow-hidden bg-cream px-5 py-28 sm:px-8 md:py-36">
-      {/* Texture */}
-      <div className="invitation-paper absolute inset-0 opacity-60" />
-
-      {/* Ambient glow */}
-      <motion.div
-        animate={{
-          scale: [1, 1.18, 1],
-          opacity: [0.05, 0.12, 0.05],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/15 blur-3xl"
-      />
 
       <div className="relative z-10 mx-auto max-w-5xl">
 
         {/* Header */}
         <div className="text-center">
+
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.45 }}
             className="font-sans text-[8px] uppercase tracking-[0.55em] text-maroon/55"
           >
             The Wedding
           </motion.p>
 
-          <motion.div
-            initial={{ width: 0, opacity: 0 }}
-            whileInView={{ width: 70, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15, duration: 0.8 }}
-            className="mx-auto my-6 h-px bg-gold/60"
-          />
+          <div className="gold-divider my-6" />
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.25, duration: 0.9 }}
+            transition={{ delay: 0.05, duration: 0.5 }}
             className="font-display text-5xl text-maroon sm:text-6xl"
           >
             A Day to Remember
           </motion.h2>
+
         </div>
 
-        {/* Main date composition */}
+        {/* Main date card */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.94, y: 30 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{
-            delay: 0.35,
-            duration: 1.1,
-            ease: [0.22, 1, 0.36, 1],
-          }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
           className="relative mx-auto mt-16 max-w-3xl"
         >
+
           {/* Outer frame */}
-          <div className="border border-gold/35 p-2 shadow-[0_25px_80px_rgba(99,59,63,0.08)]">
+          <div className="border border-gold/35 p-1.5">
 
             {/* Inner frame */}
-            <div className="relative overflow-hidden border border-gold/15 bg-ivory px-6 py-12 text-center sm:px-12 sm:py-16">
+            <div className="relative overflow-hidden border border-gold/15 bg-ivory px-5 py-12 text-center sm:px-12 sm:py-16">
 
               {/* Corner ornaments */}
               <span className="absolute left-4 top-3 font-display text-3xl text-gold/50">
@@ -94,15 +71,9 @@ export default function WeddingDetails() {
                 Friday
               </p>
 
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="mt-5 font-display text-6xl leading-none text-maroon sm:text-8xl"
-              >
+              <p className="mt-5 font-display text-6xl leading-none text-maroon sm:text-8xl">
                 16
-              </motion.p>
+              </p>
 
               <p className="mt-2 font-serif text-sm uppercase tracking-[0.45em] text-gold">
                 October
@@ -115,7 +86,9 @@ export default function WeddingDetails() {
               {/* Ornament */}
               <div className="mx-auto my-8 flex items-center justify-center gap-4">
                 <span className="h-px w-14 bg-gold/30" />
-                <span className="text-xl text-gold">❦</span>
+                <span className="text-xl text-gold">
+                  ❦
+                </span>
                 <span className="h-px w-14 bg-gold/30" />
               </div>
 
@@ -123,7 +96,10 @@ export default function WeddingDetails() {
               <div className="mx-auto max-w-xl border border-gold/20 bg-cream/70 px-5 py-7 sm:px-8">
 
                 <div className="flex items-center justify-center gap-2 text-gold">
-                  <Sparkles size={15} strokeWidth={1.3} />
+                  <Sparkles
+                    size={15}
+                    strokeWidth={1.3}
+                  />
 
                   <p className="font-sans text-[8px] uppercase tracking-[0.4em]">
                     Auspicious Muhurtham
@@ -159,10 +135,12 @@ export default function WeddingDetails() {
                 <p className="mt-2 font-display text-2xl italic text-maroon sm:text-3xl">
                   Vrushika Lagnam
                 </p>
+
               </div>
 
               {/* Venue */}
               <div className="mt-9">
+
                 <p className="font-sans text-[8px] uppercase tracking-[0.4em] text-maroon/45">
                   Wedding Venue
                 </p>
@@ -174,6 +152,7 @@ export default function WeddingDetails() {
                 <p className="mt-2 font-sans text-[9px] uppercase tracking-[0.25em] text-brown/40">
                   Air Bypass Road • Tirupati
                 </p>
+
               </div>
 
             </div>
@@ -185,7 +164,7 @@ export default function WeddingDetails() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 0.8 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
           className="mx-auto mt-10 max-w-lg text-center font-display text-xl italic leading-8 text-brown/50 sm:text-2xl"
         >
           A sacred moment, a beautiful beginning,
@@ -195,6 +174,7 @@ export default function WeddingDetails() {
         <div className="mt-8 text-center text-xl text-gold/60">
           ❦
         </div>
+
       </div>
     </section>
   );

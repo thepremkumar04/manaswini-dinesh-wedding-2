@@ -3,51 +3,39 @@ import { motion } from "framer-motion";
 export default function Blessing() {
   return (
     <section className="section-transition relative overflow-hidden bg-ivory px-6 py-28 text-center sm:px-10 md:py-36">
-      {/* Paper texture */}
-      <div className="invitation-paper absolute inset-0 opacity-70" />
-
-      {/* Decorative glow */}
-      <motion.div
-        animate={{
-          scale: [1, 1.15, 1],
-          opacity: [0.06, 0.14, 0.06],
-        }}
-        transition={{
-          duration: 7,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="pointer-events-none absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/20 blur-3xl"
-      />
+      {/* Subtle paper texture */}
+      <div className="invitation-paper pointer-events-none absolute inset-0 opacity-40" />
 
       <div className="relative z-10 mx-auto max-w-3xl">
 
         {/* Ornament */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.7 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           className="text-3xl text-gold"
         >
           ❦
         </motion.div>
 
+        {/* Label */}
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           className="mt-8 font-sans text-[9px] uppercase tracking-[0.5em] text-maroon/55"
         >
           Your Presence Means Everything
         </motion.p>
 
+        {/* Heading */}
         <motion.h2
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.35, duration: 1 }}
+          transition={{ delay: 0.05, duration: 0.55 }}
           className="mt-5 font-display text-6xl leading-none text-maroon sm:text-7xl md:text-8xl"
         >
           Come Bless
@@ -57,11 +45,12 @@ export default function Blessing() {
 
         <div className="mx-auto my-8 gold-divider" />
 
+        {/* Message */}
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.55, duration: 0.9 }}
+          transition={{ delay: 0.1, duration: 0.55 }}
           className="mx-auto max-w-xl font-display text-xl italic leading-8 text-brown/55 sm:text-2xl"
         >
           Your love, blessings and presence will make
@@ -70,10 +59,10 @@ export default function Blessing() {
 
         {/* Couple */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 0.9 }}
+          transition={{ delay: 0.15, duration: 0.55 }}
           className="mt-12"
         >
           <p className="font-display text-4xl text-maroon sm:text-5xl">
@@ -94,7 +83,7 @@ export default function Blessing() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 1, duration: 0.8 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
           className="mt-10"
         >
           <p className="font-display text-2xl tracking-[0.18em] text-gold">
@@ -106,6 +95,7 @@ export default function Blessing() {
           </p>
         </motion.div>
 
+        {/* Bottom Ornament */}
         <div className="mt-12 text-xl text-gold/60">
           ❦
         </div>
